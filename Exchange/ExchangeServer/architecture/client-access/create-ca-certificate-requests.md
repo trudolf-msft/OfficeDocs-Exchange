@@ -45,6 +45,9 @@ You can create certificate requests in the Exchange admin center (EAC) or in the
 
 ## Use the EAC to create a new certificate request
 
+> [!NOTE]
+> ECP certificate request has been deprecated in Exchange 2019 CU12 and higher and in Exchange 2016 CU23 and higher.
+
 1. Open the EAC and navigate to **Servers** \> **Certificates**.
 
 2. In the **Select server** list, select the Exchange server where you want to install the certificate, and then click **Add** ![Add icon.](../../media/ITPro_EAC_AddIcon.png).
