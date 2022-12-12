@@ -124,7 +124,7 @@ Message header data in Exchange Server 2016 provides the protocol negotiated and
 
 ### Mail Flow via SMTP Logging
 
-SMTP logs in Exchange Server 2013 and Exchange Server 2016 will contain the encryption protocol and other encryption related information used during the exchange of email between two systems.
+SMTP logs in Exchange Server 2013 and newer will contain the encryption protocol and other encryption related information used during the exchange of email between two systems.
 
 When the server is the **SMTP receiving system**, the following strings exist in the log depending on the version of TLS used:
 
@@ -137,6 +137,11 @@ When the server is the **SMTP sending system**, the following strings exist in t
 - TLS protocol SP_PROT-TLS1_0_CLIENT
 - TLS protocol SP_PROT-TLS1_1_CLIENT
 - TLS protocol SP_PROT-TLS1_2_CLIENT
+
+Example to search in protocol log files:
+```powershell
+Select-String -Path (((Get-TransportService).ReceiveProtocolLogPath | select -First 1).PathName.Replace("Hub","FrontEnd")+"\*.log") "SP_PROT_TLS1_0"
+```
 
 ### POP & IMAP
 
